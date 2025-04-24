@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swimming Pool Booking</title>
+  <link rel="stylesheet" href="style2.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">TurfZone</div>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="turf.html#book">Turf</a></li>
+        <li><a href="pool.html#book">Swimming Pool</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="gallery.html">Photo gallery</a></li>
+        <li><a href="index.html#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="book" class="booking-section">
+    <h2>🏊 Book Your Swimming Slot</h2>
+    <form class="booking-form" onsubmit="generateSwimCode(event)">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="number">Phone Number:</label>
+      <input type="tel" id="number" name="number" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="members">Number of Members:</label>
+      <input type="number" id="members" name="members" min="1" required>
+
+      <label for="slot">Choose Slot:</label>
+      <select id="slot" name="slot" required>
+        <option value="">Select a slot</option>
+        <script>
+          for (let i = 9; i <= 24 + 1; i++) {
+            let hour = i <= 24 ? i : i - 24;
+            let ampm = i < 12 || i === 24 ? "AM" : "PM";
+            let label = `${hour > 12 ? hour - 12 : hour}:00 ${ampm}`;
+            document.write(`<option value="${label}">${label}</option>`);
+          }
+        </script>
+      </select>
+      <label for="amount">Select the amount(you can pay advance or complete payment)</label>
+      <select id="amount" name="amount" required>
+        <option>₹100(advance payment)</option>
+        <option>₹800</option>
+      </select>
+
+      <label for="utr">UTR ID:</label>
+      <input type="text" id="utr" name="utr" required>
+
+      <label for="payment">Upload Payment Screenshot:</label>
+      <input type="file" id="payment" name="payment" accept="image/*" required>
+
+      <button type="submit">Submit Booking</button>
+    </form>
+
+    <div class="instructions">
+      <h3>📌 Instructions:</h3>
+      <ul>
+        <li>Advance payment of ₹100 is required.</li>
+        <li>Total payment of ₹800 per hour.</li>
+        <li>Slots are available from 9:00 AM to 1:00 AM.</li>
+        <li>Swimming gear is mandatory for entry.</li>
+        <li>Refunds are not allowed after booking confirmation.</li>
+      </ul>
+    </div>
+
+    <div id="confirmation" class="confirmation" style="display:none;">
+      <h3>✅ Booking Confirmed!</h3>
+      <p>Your Swimming Code is: <strong id="swimCode"></strong></p>
+      <p>Please save this code for verification at the venue.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 TurfZone. All rights reserved. | Designed by </p>
+      <div class="social-icons">
+        <a href="www.instagram.com"><img src="images/instagram.jpg" alt="Instagram"></a>
+        <a href="www.facebbok.com"><img src="images/facebook.jpg" alt="Facebook"></a>
+        <a href="www.twitter.com"><img src="images/twitter.jpg" alt="Twitter"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function generateSwimCode(event) {
+      event.preventDefault();
+      const code = "SZ" + Math.floor(1000 + Math.random() * 9000); // Random Swimming Code
+      document.getElementById("swimCode").innerText = code;
+      document.querySelector(".booking-form").style.display = "none";
+      document.getElementById("confirmation").style.display = "block";
+    }
+  </script>
+</body>
+</html>

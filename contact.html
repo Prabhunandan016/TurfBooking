@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - TurfZone</title>
+  <link rel="stylesheet" href="style3.css"/>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">TurfZone</div>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="turf.html">Turf</a></li>
+        <li><a href="pool.html">Swimming Pool</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="gallery.html">Photo gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact-section">
+    <h2>📞 Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-details">
+        <h3>Get in Touch</h3>
+        <p><strong>📱 Phone:</strong> +91 98765 43210</p>
+        <p><strong>📧 Email:</strong> turfzone@gmail.com</p>
+        <p><strong>📸 Instagram:</strong> <a href="https://instagram.com/turfzone" target="_blank">@turfzone</a></p>
+        <p><strong>📘 Facebook:</strong> <a href="https://facebook.com/turfzone" target="_blank">TurfZone</a></p>
+        <p><strong>📍 Location:</strong> SRKR College Grounds, Bhimavaram, AP</p>
+      </div>
+
+      <div class="feedback-form">
+        <h3>📝 Feedback Form</h3>
+        <form onsubmit="submitFeedback(event)">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message..." rows="5" required></textarea>
+          <button type="submit">Submit Feedback</button>
+        </form>
+        <div class="thank-you" id="thankYou" style="display:none;">
+          <p>✅ Thank you for your feedback!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 TurfZone. All rights reserved. | Designed by </p>
+      <div class="social-icons">
+        <a href="www.instagram.com"><img src="images/instagram.jpg" alt="Instagram"></a>
+        <a href="www.facebbok.com"><img src="images/facebook.jpg" alt="Facebook"></a>
+        <a href="www.twitter.com"><img src="images/twitter.jpg" alt="Twitter"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function submitFeedback(event) {
+      event.preventDefault();
+      document.querySelector('.feedback-form form').style.display = 'none';
+      document.getElementById('thankYou').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

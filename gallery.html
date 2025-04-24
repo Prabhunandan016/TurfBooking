@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photo Gallery - TurfZone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style4.css"/>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">TurfZone</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="turf.html">Turf</a></li>
+        <li><a href="pool.html">Swimming Pool</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Cricket Turf Gallery -->
+  <section class="gallery-section">
+    <h2 class="section-title">🏏 Cricket Turf Gallery</h2>
+    <div class="gallery-container">
+      <div class="gallery-slide">
+        <div class="gallery-page"><img src="images/cc1.jpg" alt="Turf Image 1"></div>
+        <div class="gallery-page"><img src="images/cc2.jpg" alt="Turf Image 2"></div>
+        <div class="gallery-page"><img src="images/cc3.jpg" alt="Turf Image 3"></div>
+        <div class="gallery-page"><img src="images/cc4.jpg" alt="Turf Image 4"></div>
+        <div class="gallery-page"><img src="images/cc5.jpg" alt="Turf Image 5"></div>
+        <div class="gallery-page"><img src="images/cc6.jpg" alt="Turf Image 6"></div>
+        <div class="gallery-page"><img src="images/cc7.jpg" alt="Turf Image 7"></div>
+        <div class="gallery-page"><img src="images/cc8.jpg" alt="Turf Image 8"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Swimming Pool Gallery -->
+  <section class="gallery-section">
+    <h2 class="section-title">🏊 Swimming Pool Gallery</h2>
+    <div class="gallery-container">
+      <div class="gallery-slide">
+        <div class="gallery-page"><img src="images/swpool1.jpg" alt="Pool Image 1"></div>
+        <div class="gallery-page"><img src="images/swpool2.jpg" alt="Pool Image 2"></div>
+        <div class="gallery-page"><img src="images/swpool3.jpg" alt="Pool Image 3"></div>
+        <div class="gallery-page"><img src="images/swpool4.jpg" alt="Pool Image 4"></div>
+        <div class="gallery-page"><img src="images/swimming1.jpeg" alt="Pool Image 4"></div>
+        <div class="gallery-page"><img src="images/swimming2.jpeg" alt="Pool Image 4"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 TurfZone Sports Facility | All Rights Reserved
+    <div class="social-icons">
+        <a href="www.instagram.com"><img src="images/instagram.jpg" alt="Instagram"></a>
+        <a href="www.facebbok.com"><img src="images/facebook.jpg" alt="Facebook"></a>
+        <a href="www.twitter.com"><img src="images/twitter.jpg" alt="Twitter"></a>
+      </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.gallery-slide').forEach(slide => {
+      const pages = slide.querySelectorAll('.gallery-page');
+      let currentIndex = 0;
+  
+      // Initially show the first image
+      pages.forEach((page, i) => {
+        page.style.display = i === 0 ? 'block' : 'none';
+      });
+  
+      // Flip to next image every 3 seconds
+      setInterval(() => {
+        pages[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex + 1) % pages.length;
+        pages[currentIndex].style.display = 'block';
+      }, 3000);
+    });
+  </script>
+
+</body>
+
+  
+</html>
